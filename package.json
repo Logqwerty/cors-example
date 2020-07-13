@@ -1,0 +1,12 @@
+{
+  "name": "cors-example",
+  "repository": "https://github.com/Logqwerty/cors-example.git",
+  "author": "Logqwerty <inm2790@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "version": "1.0.0",
+  "main": "index.js"
+}
