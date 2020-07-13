@@ -21,6 +21,13 @@ const MENUS = [
   },
 ];
 
+app.options("/api/menus", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:8080");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Access-Control-Max-Age", "-1");
+  res.send();
+});
+
 app.get("/api/menus", (req, res) => {
   res.header("Access-Control-Allow-Origin", "http://localhost:8080");
   res.json(MENUS);
