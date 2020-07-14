@@ -16,7 +16,7 @@ reqBtn.addEventListener("click", (e) => {
     headers: {
       "Content-Type": "application/json",
     },
-    credentials: "include",
+    // credentials: "include",
   })
     .then((res) => res.json())
     .then((menus) => (console.log(menus), menus))

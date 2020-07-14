@@ -1,7 +1,9 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 const app = express();
+const PORT = process.env.PORT;
 
 const MENUS = [
   {
@@ -40,19 +42,22 @@ const authenticate = (req, res, next) => {
   next();
 };
 
+app.use(
+  "/api/menus",
+  cors({
+    origin: ["http://localhost:8080", "http://localhost:7070"],
+    allowedHeaders: ["Content-Type"],
+    maxAge: -1,
+  })
+);
+
 app.options("/api/menus", (req, res) => {
   console.log("OPTIONS /api/menus");
-  res.header("Access-Control-Allow-Origin", "http://localhost:8080");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  res.header("Access-Control-Allow-Credentials", "false");
-  res.header("Access-Control-Max-Age", "-1");
   res.send();
 });
 
 app.get("/api/menus", (req, res) => {
   console.log("GET /api/menus");
-  res.header("Access-Control-Allow-Origin", "http://localhost:8080");
-  res.header("Access-Control-Allow-Credentials", "true");
   res.json(MENUS);
 });
 
